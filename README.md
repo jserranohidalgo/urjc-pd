@@ -22,7 +22,7 @@ Then, run the program:
 
 `jupyter notebook` 
 
-in the root directory of the repository, if you already installed
+in the root directory of the repository -- provided that you already installed
 `jupyter` in your computer (see instructions below).
 
 Alternatively, you can skip the manual installation of `jupyter`
