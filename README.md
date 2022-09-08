@@ -46,7 +46,7 @@ To install jupyter and run Scala notebooks, follow these steps:
 * Alternatively, you can also find jupyter notebooks for free when installing [anaconda](https://www.anaconda.com/products/individual-d).
 * Install the Scala plugin [`almond`](https://almond.sh/docs/quick-start-install)
 
-### Notes on installing almond
+### Possible problems when installing almond
 
 * The installation command hangs (most likely, on windows)
 
