@@ -12,6 +12,10 @@ The course basically includes several notebooks on the following topics:
 * PF-3.1 The Hall-of-Fame of HOFs
 * PF-3.2 HOFs as a query language
 
+# Intro & Schedule
+
+[Intro.pdf](Intro.pdf) -- (Spanish, URJC specifics)
+
 # Launching notebooks
 
 To access these notebooks you need first to clone this repository in your local drive: 
