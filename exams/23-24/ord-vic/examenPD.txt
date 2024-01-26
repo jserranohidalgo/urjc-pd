@@ -1,0 +1,598 @@
+Programación declarativa @ URJC
+Programación funcional
+Curso 23-24, convocatoria ordinaria (30 de octubre de 2023)
+Campus de Vicálvaro
+Preámbulo
+1
+import $ivy.`org.scalatest::scalatest:3.0.8`
+2
+import org.scalatest._
+import $ivy.$                               
+
+import org.scalatest._
+Algunas definiciones de tipos y funciones auxiliares
+1
+sealed abstract class Tree[A]
+2
+case class Empty[A]() extends Tree[A]
+3
+case class Node[A](left: Tree[A], root: A, right: Tree[A]) extends Tree[A]
+4
+​
+5
+object Tree{
+6
+    def void[A]: Tree[A] = Empty()
+7
+    def leaf[A](a: A): Node[A] = Node(Empty(), a, Empty())
+8
+    def right[A](a: A, tree: Tree[A]): Node[A] = Node(Empty(), a, tree)
+9
+    def left[A](tree: Tree[A], a: A): Node[A] = Node(tree, a, Empty())
+10
+    def node[A](left: Tree[A], a: A, right: Tree[A]): Node[A] = Node(left, a, right)
+11
+}
+12
+​
+13
+import Tree._
+14
+​
+15
+def foldTree[A, B](tree: Tree[A])(empty: B)(node: (B, A, B) => B): B = 
+16
+    tree match {
+17
+        case Empty() => empty
+18
+        case Node(left, root, right) => node(foldTree(left)(empty)(node), root, foldTree(right)(empty)(node))
+19
+    }
+20
+​
+21
+def map[A, B](tree: Tree[A])(f: A => B): Tree[B] = 
+22
+    foldTree(tree)(Empty(): Tree[B]){ 
+23
+        (leftMapped, root, rightMapped) => 
+24
+            Node(leftMapped, f(root), rightMapped)
+25
+    }
+defined class Tree
+defined class Empty
+defined class Node
+defined object Tree
+import Tree._
+
+
+defined function foldTree
+defined function map
+1
+object Signatures{
+2
+    abstract class List[A]{
+3
+        
+4
+        // Common HOFs
+5
+        def foldRight[B](nil: B)(cons: (A, B) => B): B
+6
+        def foldLeft[B](initial: B)(update: (B, A) => B): B
+7
+        def map[B](f: A => B): List[B]
+8
+        def flatMap[B](f: A => List[B]): List[B]
+9
+        def filter(f: A => Boolean): List[A]
+10
+        def forall(pred: A => Boolean): Boolean
+11
+        def exists(pred: A => Boolean): Boolean
+12
+ 
+13
+        // Returns the number of elements of this list
+14
+        def length: Int
+15
+        
+16
+        def reverse: List[A]
+17
+    }
+18
+}
+defined object Signatures
+Definiciones auxiliares sobre la correspondencia Curry-Howard y Tipos Algebraicos de Datos
+1
+trait Isomorphic[A, B]{
+2
+    
+3
+    def from(a: A): B
+4
+    
+5
+    def to(b: B): A
+6
+    
+7
+    def law1(a: A): Boolean = 
+8
+        to(from(a)) == a
+9
+    
+10
+    def law2(b: B): Boolean = 
+11
+        from(to(b)) == b
+12
+}
+defined trait Isomorphic
+image.png
+
+1
+type Not[P] = P => Nothing
+defined type Not
+Ejercicio 1
+(2 puntos)
+
+a) (1 punto) Utiliza la correspondencia de Curry-Howard para demostrar la siguiente tautología de la lógica proposicional intuicionista:
+
+⊢¬¬𝑝∨¬¬𝑞→¬¬(𝑝∨𝑞)
+1
+def proof[P, Q]: (Not[Not[P]]) => (Not[Not[Q]]) => Not[Not[Either[P, Q]]] = 
+2
+    e => (f => e match {
+3
+       case Left(nnp) => nnp(p => f(Left(p)))
+4
+        case Left(nnp) => nnp(p => f(Left(p)))
+5
+    })
+defined function proof
+
+b) (1 punto) Se desea utilizar la correspondencia de Curry-Howard para demostrar la validez del siguiente argumento de la lógica clásica proposicional:
+
+{𝑝∧𝑞→𝑟∨𝑠,¬(𝑡∧¬𝑝),𝑡,𝑡→𝑞,𝑞→𝑡}⊢𝑐¬𝑟→𝑠
+Para ello, utiliza como premisa adicional la ley del tercio excluso aplicada a la proposición 𝑝
+, es decir, demuestra la validez intuicionista del siguiente argumento lógico:
+
+{𝑝∨¬𝑝,𝑝∧𝑞→𝑟∨𝑠,¬(𝑡∧¬𝑝),𝑡,𝑡→𝑞,𝑞→𝑡}⊢¬𝑟→𝑠
+1
+def proof[P, Q, R, S, T](
+2
+p1: Either[P, Not[P]],
+3
+p2: ((P,Q)) => Either[R, S],
+4
+p3: Not[((T, Not[P]))],
+5
+p4: T,
+6
+p5: T => Q, 
+7
+p6: Q => T): Not[R] => S =
+8
+​
+9
+nr => p1 match {
+10
+    case Left(p) => p2(p,p5(p4)) match {
+11
+        case Left(r) => nr(r)
+12
+        case Right(s) => s
+13
+    }
+14
+case Right(np) => p3((p4, np))
+15
+}
+defined function proof
+Ejercicio 2
+(1,5 puntos)
+
+Demuestra que, para todo tipo A, los tipos de datos (Unit => Boolean) => Unit => A y (A, A) son isomorfos:
+
+1
+class Iso[A] extends Isomorphic[(Unit => Boolean) => Unit => A, (A, A)]{
+2
+    def from(a: (Unit => Boolean) => Unit => A): (A, A) = 
+3
+        (a(_ => true)(()), a(_ => false)(()))
+4
+        def to(t: (A, A)): (Unit => Boolean) => Unit => A =
+5
+    	f => un => t match {
+6
+        case (a1, a2) => a2
+7
+	}
+8
+
+La implementación deberá satisfacer las leyes de los isomorfismos, y en particular el siguiente test:
+
+1
+class TestIso(iso: Isomorphic[(Unit => Boolean) => Unit => Int, (Int, Int)]) extends FlatSpec with Matchers{
+2
+​
+3
+    "law2" should "hold" in {
+4
+        iso.law2((1,3)) shouldBe true
+5
+        iso.law2((2,4)) shouldBe true
+6
+    }
+7
+​
+8
+    "law1" should "hold" in {
+9
+        iso.law1(f => _ => if (f(())) 3 else 4) shouldBe true
+10
+        iso.law1(f => _ => if (f(())) 6 else 7) shouldBe true
+11
+    }
+12
+}
+1
+run(new TestIso(new Iso[Int]{
+2
+    override def law1(b: (Unit => Boolean) => Unit => Int): Boolean = 
+3
+        (to(from(b))(_ => false)(()) == b(_ => false)(())) && 
+4
+        (to(from(b))(_ => true)(()) == b(_ => true)(()))
+5
+}))
+Ejercicio 3
+(3 puntos)
+
+La función isSorted[A] comprueba si una lista de elementos de tipo A se encuentra ordenada de acuerdo a una relación de orden (A, A) => Boolean dada. Por ejemplo, la función satisface los siguientes casos de prueba:
+
+1
+class TestSorted(isSorted: List[Int] => ((Int, Int) => Boolean) => Boolean) extends FlatSpec with Matchers{
+2
+    
+3
+    "sorted" should "work" in {
+4
+        
+5
+        isSorted(Nil)(_ < _) shouldBe true
+6
+        isSorted(List(1))(_ < _) shouldBe true
+7
+        isSorted(List(0,1))(_ < _) shouldBe true
+8
+        isSorted(List(0,1,2,3,4))(_ < _) shouldBe true
+9
+        isSorted(List(1,0))(_ < _) shouldBe false
+10
+        isSorted(List(1,2,0))(_ < _) shouldBe false
+11
+        isSorted(List(3,1,2))(_ < _) shouldBe false
+12
+    }
+13
+}
+defined class TestSorted
+a) (1,5 puntos) Implementa la función isSorted mediante recursión final.
+
+1
+def isSorted[A] (list: List[A]): ((A, A) => Boolean) => Boolean =
+2
+    f => list match {
+3
+        case List() => true
+4
+        case h::t => 
+5
+            isSorted(t)(f) match {
+6
+                case false => false
+7
+                case true => t match {
+8
+                    case h2 :: t =>
+9
+                        if (f(h, h2)) false
+10
+                        else true
+11
+                }
+12
+            }
+13
+    }
+defined function isSorted
+1
+run(new TestSorted(isSorted))
+cmd58$Helper$TestSorted:
+sorted
+- should work *** FAILED ***
+  true was not equal to false (cmd58.sc:9)
+b) (1,5 puntos) Implementa la función isSorted mediante la función foldLeft.
+
+1
+def isSorted[A] (list: List[A]): ((A, A) => Boolean) => Boolean =
+2
+    f => list.foldLeft(true){
+3
+        case (elem, acc) => 
+4
+            if (elem) acc match{
+5
+                case h2 :: t =>
+6
+                    if (f(h, h2)) true
+7
+                    else false
+8
+            }
+9
+    }
+cmd64.sc:6: not found: value h
+                    if (f(h, h2)) true
+                          ^cmd64.sc:6: type mismatch;
+ found   : h2.type (with underlying type Any)
+ required: A
+                    if (f(h, h2)) true
+                             ^cmd64.sc:4: type mismatch;
+ found   : Unit
+ required: Boolean
+            if (elem) acc match{
+            ^Compilation Failed
+Compilation Failed
+
+1
+run(new TestSorted(isSorted))
+Ejercicio 4
+(3,5 puntos)
+
+La función heads recibe un árbol cuyos nodos almacenan listas de elementos, y devuelve un árbol con la misma estructura donde los nodos almacenan el primer elemento de cada lista, siempre y cuando todas las listas de elementos almacenadas en los nodos del árbol sean no vacías. Por ejemplo, considérense los siguientes casos de prueba:
+
+1
+class TestHeads(heads: Tree[List[Int]] => Option[Tree[Int]]) extends FlatSpec with Matchers{
+2
+    
+3
+    "heads" should "work" in {
+4
+        heads(node(leaf(List(1,2,3)), List(5), leaf(List(10,0)))) shouldBe 
+5
+            Some(node(leaf(1), 5, leaf(10)))
+6
+        
+7
+        heads(node(leaf(Nil), List(5,3), leaf(List(10)))) shouldBe 
+8
+            None
+9
+        
+10
+        heads(node(leaf(List(1,2)), List(), leaf(List(10)))) shouldBe 
+11
+            None
+12
+        
+13
+        heads(node(leaf(List(1,2)), List(5,3), leaf(List()))) shouldBe 
+14
+            None
+15
+        
+16
+        heads(node(node(leaf(List(1,2)), List(6), leaf(List(3,4,2))), List(5), leaf(List(2,3,2)))) shouldBe 
+17
+            Some(node(node(leaf(1), 6, leaf(3)), 5, leaf(2)))        
+18
+    }
+19
+}
+defined class TestHeads
+La función divide recibe un número entero y un árbol de números enteros, y devuelve un árbol con la misma estructura cuyos nodos resultan de dividir el número recibido como entrada y el número almacenado en el nodo del árbol, siempre y cuando no exista ningún cero almacenado en algún nodo del árbol. Por ejemplo:
+
+1
+class TestDivide(divide: Int => Tree[Int] => Option[Tree[Int]]) extends FlatSpec with Matchers{
+2
+    
+3
+    "divide" should "work" in {
+4
+        divide(10)(node(leaf(1), 5, leaf(10))) shouldBe 
+5
+            Some(node(leaf(10), 2, leaf(1)))
+6
+        
+7
+        divide(10)(node(leaf(0), 5, leaf(10))) shouldBe 
+8
+            None
+9
+        
+10
+        divide(10)(node(leaf(1), 5, leaf(0))) shouldBe 
+11
+            None
+12
+        
+13
+        divide(10)(node(leaf(1), 0, leaf(10))) shouldBe 
+14
+            None
+15
+        
+16
+        divide(30)(node(node(leaf(1), 6, leaf(3)), 5, leaf(2))) shouldBe 
+17
+            Some(node(node(leaf(30), 5, leaf(10)), 6, leaf(15)))        
+18
+    }
+19
+    
+20
+}
+defined class TestDivide
+Considérense las siguientes implementaciones de las funciones heads y divide basadas en un mismo patrón de diseño:
+
+1
+def heads[A](t: Tree[List[A]]): Option[Tree[A]] = 
+2
+    t match {
+3
+        case Empty() => 
+4
+            Some(Empty())
+5
+        case Node(left, b, right) => 
+6
+            (heads(left), b match { 
+7
+                case Nil => None; 
+8
+                case h :: _ => Some(h) 
+9
+            }, heads(right)) match {
+10
+                    case (Some(left), Some(r), Some(right)) => 
+11
+                        Some(Node(left, r, right))
+12
+                    case _ => 
+13
+                        None
+14
+                }
+15
+    }
+defined function heads
+1
+run(new TestHeads(heads))
+cmd35$Helper$TestHeads:
+heads
+- should work
+1
+def divide(a: Int)(t: Tree[Int]): Option[Tree[Int]] = 
+2
+    t match {
+3
+        case Empty() => 
+4
+            Some(Empty())
+5
+        case Node(left, b, right) => 
+6
+            (divide(a)(left), 
+7
+             if (b == 0) None 
+8
+             else Some(a/b), 
+9
+             divide(a)(right)) match {
+10
+                case (Some(left), Some(r), Some(right)) => 
+11
+                    Some(Node(left, r, right))
+12
+                case _ => 
+13
+                    None
+14
+            }
+15
+    }
+defined function divide
+1
+run(new TestDivide(divide))
+cmd36$Helper$TestDivide:
+divide
+- should work
+a) (1,5 puntos) Implementa una función de orden superior, denominada traverse, que encapsule el patrón de diseño utilizado en las implementaciones de las funciones heads y divide.
+
+1
+def traverse[A](tree: Tree[A])(f: A => Option[A]): Option[Tree[A]] =
+2
+    tree match {
+3
+        case Empty() => Some(Empty())
+4
+        case Node(l, a, r) =>
+5
+        (traverse(l)(f), f(a),traverse(r)(f)) match {
+6
+            case (Some(l), Some(c), Some(r)) => Some(Node(l, c, r))
+7
+            case _ => None
+8
+        }
+9
+    }
+defined function traverse
+b) (1,5 puntos) Implementa de una manera más modular las funciones heads y divide mediante la función traverse.
+
+1
+def heads[A](t: Tree[List[A]]): Option[Tree[A]] = 
+2
+    traverse(t)(b => b match { 
+3
+                case Nil => None; 
+4
+                case h :: _ => Some(h)})
+cmd54.sc:4: type mismatch;
+ found   : A
+ required: List[A]
+                case h :: _ => Some(h)})
+                                    ^cmd54.sc:2: type mismatch;
+ found   : Option[ammonite.$sess.cmd45.wrapper.cmd12.Tree[List[A]]]
+ required: Option[cmd54.this.cmd12.Tree[A]]
+    traverse(t)(b => b match { 
+            ^Compilation Failed
+Compilation Failed
+
+1
+run(new TestHeads(heads))
+1
+def divide(a: Int)(t: Tree[Int]): Option[Tree[Int]] =
+2
+    traverse(t)(b => if (b == 0) None else Some(a/b))
+defined function divide
+1
+run(new TestDivide(divide))
+cmd36$Helper$TestDivide:
+divide
+- should work
+c) (0,5 puntos) Implementa la función traverse mediante la función map sobre árboles binarios, cuya definición se puede encontrar en el preámbulo del examen, y la función sequence definida a continuación:
+
+1
+def sequence[A](t: Tree[Option[A]]): Option[Tree[A]] = 
+2
+    t match {
+3
+        case Empty() =>
+4
+            Some(Empty())
+5
+        case Node(left, a, right) => 
+6
+            (sequence(left), a, sequence(right)) match {
+7
+                case (Some(left), Some(a), Some(right)) => 
+8
+                    Some(Node(left, a, right))
+9
+                case _ => 
+10
+                    None
+11
+            }
+12
+    }
+1
+​
