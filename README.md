@@ -6,13 +6,16 @@ Intelligence Degree of the University Rey Juan Carlos.
 
 The course material basically includes several notebooks on the following topics:
 
-* Topic 1. [Introduction & schedule](PF-1/Intro.pdf) (spanish, URJC specifics)
-* Topic 2. Strongly-typed languages and Scala
-* Topic 3. Algebraic data types
-* Topic 4. The Curry-Howard correspondence
-* Topic 5. Recursive functions and data types
-* Topic 6. Higher-order functions and modular programming
-* Topic 7. Applications
+* PF-1
+  * Topic 1. [Introduction & schedule](PF-1/Intro.pdf) (spanish, URJC specifics)
+  * Topic 2. Strongly-typed languages and Scala
+* PF-2
+  * Topic 3. Algebraic data types
+  * Topic 4. The Curry-Howard correspondence
+* PF-3
+  * Topic 5. Recursive functions and data types
+  * Topic 6. Higher-order functions and modular programming
+  * Topic 7. Applications
 
 # Launching notebooks
 
