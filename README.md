@@ -5,7 +5,7 @@ Intelligence Degree of the University Rey Juan Carlos.
 # Content 
 
 The course material basically includes several notebooks on the following topics:
-
+a
 * PF-1
   * Topic 1. [Introduction & schedule](PF-1/Intro.pdf) (spanish, URJC specifics)
   * Topic 2. Strongly-typed languages and Scala
