@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(scala -version)",
+      "Bash(scala verify_exam.scala)",
+      "Bash(scala verify_exam2.scala)",
+      "Bash(scala v3.scala)",
+      "Bash(scala v4.scala)",
+      "Bash(scala v6.scala)",
+      "Bash(scala -language:experimental.fewerBraces fb.scala)",
+      "Read(//Users/jserrano/.ivy2/cache/org.scalatest/**)",
+      "Read(//Users/jserrano/.cache/**)",
+      "Bash(scala verify_full.scala)",
+      "Bash(jupyter nbconvert *)",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Read(//Applications/Microsoft Edge.app/Contents/MacOS/**)",
+      "Read(//Applications/**)",
+      "Bash(brew --version)"
+    ]
+  }
+}
