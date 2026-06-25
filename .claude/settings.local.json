@@ -16,7 +16,8 @@
       "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
       "Read(//Applications/Microsoft Edge.app/Contents/MacOS/**)",
       "Read(//Applications/**)",
-      "Bash(brew --version)"
+      "Bash(brew --version)",
+      "Bash(magick IMG20260618121144.jpg IMG20260618121150.jpg IMG20260618121157.jpg IMG20260618121201.jpg \"NATALIA GARCIA DELGADO.pdf\")"
     ]
   }
 }
