@@ -24,20 +24,58 @@ jserranohidalgo/curry-howard-game`) que actúa de tutor mientras se juega. El c�
 fuente y los documentos de diseño del juego aún no están publicados ("coming
 soon" según el README), y está pensado como el primero de una familia de juegos
 (uno por cada lógica/lenguaje: `λ→`, `λμ`, `λΠ`, `λμΠ`).
-El repo ya lista este curso (`urjc-pd`) en su tabla "Where it is used", pero de
-momento no hay ninguna referencia al juego dentro de `urjc-pd`/`urjc-pd-private`.
+El repo ya lista este curso (`urjc-pd`) en su tabla "Where it is used".
 
-- [ ] Enlazar el juego desde el material del curso: README principal y
-      `PF-2/topic4/4.1 CurryHoward.ipynb` (y su template), con una celda que
-      explique qué es y enlace a jugarlo.
-- [ ] Decidir si las dos charlas del juego sustituyen, complementan o solo se
-      enlazan desde la explicación actual de la correspondencia de Curry-Howard
-      en el notebook.
+- [x] Enlazar el juego desde el README principal de `urjc-pd` (2026-09-08): bullet
+      de Topic 4 con enlace a jugar, más una sección nueva "The Curry–Howard
+      Game". Hecho en local, rama `jserrano-master`, **sin commitear todavía**.
 - [ ] Valorar si se anima a los alumnos a instalar/usar el plugin de Claude Code
       como apoyo (requiere Python 3).
-- [ ] Revisar si el ejemplo "worked example" de la charla del juego coincide o
-      complementa el ejemplo que ya se usa en el notebook, para no duplicar ni
-      contradecir la explicación.
+
+### Propuesta de modificación de `PF-2/topic4/4.1 CurryHoward.ipynb`
+
+Comparación hecha (2026-09-08) entre la estructura actual del notebook (81
+celdas: refresco aritmética→tipos, proposiciones como tipos, pruebas como
+programas con un ejemplo reescrito 3 veces, tabla de reglas, 4 teoremas más,
+postura intuicionista con 3 no-teoremas, conclusión) y la charla del juego
+*"What is the Curry–Howard correspondence?"* (documentada en
+`curry-howard-game/spec/help.md`, sección "The first talk, slide by slide").
+
+La forma en que el notebook presenta la tabla de reglas (reglas de deducción
+natural → constructores/destructores ADT → tabla fusionada, celdas 23-32) ya
+coincide bien con el enfoque progresivo de la charla — no tocar eso. Los huecos
+concretos identificados, de menor a mayor esfuerzo:
+
+- [ ] **Momento eureka de Curry y Howard** (bajo esfuerzo, alto valor). La celda
+      3 ya tiene las dos fotos, pero la celda 4 pasa directo a definir la
+      correspondencia en abstracto. La charla cuenta dos momentos concretos: qué
+      vio Curry en 1934 (derivación axiomática de `p→r` junto al combinador
+      `S (K g) f`, sin nada que los empareje) y qué vio Howard en 1969 (figura
+      de deducción natural de `a∧b→b∧a` junto al programa que la habita).
+      Insertar una celda breve entre 3 y 4 con esos dos ejemplos como gancho
+      narrativo, antes de la definición general.
+- [ ] **Nombrar el "giro de moneda"** (bajo esfuerzo). La charla usa una moneda
+      que gira entre lectura-de-lógico y lectura-de-programador como hilo
+      conductor visual. El notebook ya alterna programa/prueba lado a lado
+      (celdas 27-28 en adelante) pero nunca lo nombra como ritual repetido.
+      Añadir un callout la primera vez que aparece, tipo "▸ lo mismo, leído dos
+      veces", para que se repita mentalmente en los ejemplos posteriores.
+- [ ] **Secuencia "hole by hole"** (esfuerzo medio, el más valioso
+      pedagógicamente). La charla incluye 4 slides de una partida real
+      construyéndose paso a paso. El notebook reescribe el mismo programa 3
+      veces (idiomático → verboso → combinadores, celdas 33-42), que es otra
+      cosa: no muestra cómo se va rellenando el término. Añadir, junto al
+      ejemplo verboso, una secuencia corta con `???` que se va rellenando
+      agujero a agujero — el core loop del juego — antes de la versión final
+      con combinadores.
+- [ ] **Cierre con invitación a jugar** (bajo esfuerzo). La conclusión (celdas
+      79-80) menciona la familia de lógicas en un párrafo denso y no apunta a
+      ningún siguiente paso. Cerrar el notebook con una celda que invite a jugar
+      el ejemplo (`p∧(q∨r)→p∧q∨p∧r` o `a∧b→b∧a`) en el juego, enlazando el
+      mismo repo añadido al README.
+- [ ] Decidir alcance final antes de implementar (p.ej. si se salta el punto del
+      "hole by hole", que es el que más tiempo lleva) y aplicar los cambios
+      también al template (`4.1 CurryHoward-template.ipynb`, si existe).
 
 ## 2. Traducción al español
 
