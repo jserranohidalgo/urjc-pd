@@ -151,3 +151,59 @@ Acciones:
       encuentran ejercicios de examen de recursión aprovechables.
 - [ ] Extender también otras hojas de ejercicios del curso (topics 3, 4, 7) con
       material de exámenes, si al revisar el 6.2/5.2 el enfoque funciona bien.
+
+## 5. Presentación del primer día 26-27 — hecha; queda alinear el .docx
+
+La presentación de bienvenida (Google Slides, exportada al repo como
+[`PF-1/Intro.pdf`](PF-1/Intro.pdf)) ya está actualizada para el 26-27:
+
+- [x] Copia de la presentación 25-26 en la carpeta del 26-27 y calendarios
+      rehechos en las slides **12 (Vicálvaro)** y **13 (Móstoles)** (2026-09-08).
+- [x] Exportada a PDF y sustituida en el repo (commit `768f97d`).
+- [ ] Confirmar si la desaparición de la última slide (captura de Scala Days
+      Madrid; el deck pasa de 20 a 19 páginas) fue intencionada. La versión
+      anterior está en `a785f53`.
+
+Calendario que quedó en las slides, que conviene tener escrito porque **no sale
+tal cual del `.docx`** (no lectivos en ambos grupos: 30-9 apertura del curso y
+12-10 Fiesta Nacional; examen de PF el L 26-10 en los dos):
+
+- **Móstoles** — 12 sesiones, 24h: Scala 11-9; Funciones 14-9 y 18-9; ADT 21-9 y
+  25-9; Curry-Howard 28-9 y 2-10; Recursión 5-10 y 9-10; HOF 16-10, 19-10 y
+  23-10.
+- **Vicálvaro** — 10 sesiones, 20h: Scala+Funciones juntas el 14-9 (`S/F`);
+  Funciones 16-9; ADT 21-9 y 28-9; Curry-Howard 23-9 y 5-10; Recursión 7-10 y
+  14-10; HOF 19-10 y 21-10.
+- Las 4h menos de Vicálvaro se absorbieron **fusionando Scala con Funciones en
+  la primera sesión**, para que Curry-Howard conserve sus dos sesiones (que es
+  lo que interesa de cara al punto 1).
+
+### Correcciones pendientes en `PlanificacionPD-26-27.docx`
+
+El documento de planificación (OneDrive URJC, `Asignaturas/26-27/PD-GII/`) sigue
+arrastrando cuatro errores, detectados al contrastarlo con el
+[calendario académico oficial](https://www.urjc.es/images/EstudiarURJC/Admision_matricula/archivos/calendario_academico_26_27.pdf)
+y con el calendario real de 2026. Las slides ya están bien, pero el `.docx` es
+el que se usa para coordinar con el resto del profesorado:
+
+- [ ] **No recoge que el X 30-9 no es lectivo** (apertura del curso académico).
+      Es sesión de Vicálvaro —la línea `V-X: Curry-Howard` de la semana 4—, así
+      que esa semana son 2h en VIC, no 4h. Móstoles no se ve afectado (sus
+      sesiones son L y V).
+- [ ] **Semana 6, línea `M-L: HOF`**: el L 12-10 es Fiesta Nacional, Móstoles no
+      tiene clase. Sobra esa línea: con ella salen 13 sesiones de PF (26h),
+      mientras que la cabecera de la semana ("2h") y el total (6 semanas de 2h)
+      exigen 12 (24h).
+- [ ] **Total y reparto de Vicálvaro**: son **48h**, no 50h (1·0h + 6·2h + 9·4h;
+      semanas de 2h: 4, 6, 9, 10, 14 y 16), repartidas en **20h PF + 2h examen +
+      26h PL**, no "24h PF + 2h examen + 24h PL".
+- [ ] **`Práctica PL nº 3 (10a sesión): L 7-12`**, en los dos grupos: el 7-12 es
+      festivo, como dice la propia cabecera de la semana 14. Contando bien, la
+      10ª sesión de PL es el **V 11-12 en Móstoles** y el **X 9-12 en
+      Vicálvaro**.
+- [ ] Menores: el 2-11 y el 7-12 están etiquetados como "Fiesta Nacional" (son
+      los traslados de Todos los Santos y del Día de la Constitución; solo el
+      12-10 es Fiesta Nacional); el paréntesis de la semana 1 ("12/9 fiesta
+      Móstoles cae en sábado") no explica las 0h de VIC —la razón es que las
+      clases empiezan el 10-9—; y en HORARIOS hay una errata:
+      "VIC L L(09:00 - 11:00)".
