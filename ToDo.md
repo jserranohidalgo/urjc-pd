@@ -187,16 +187,54 @@ Investigación ya hecha (comparando plantillas de clase vs. `master`):
 
 Acciones:
 
-- [ ] En `PF-3/topic6/6.1 HigherOrderFunctions.ipynb`, añadir en las secciones
-      FoldRight, FoldLeft, `map`, Filtering y FlatMapping: un segundo problema
-      concreto con el mismo esqueleto que el primero, y una celda de
-      refactorización explícita tras cada abstracción (siguiendo el patrón
-      `toChar`/`length` de las ramas de clase).
-- [ ] Nombrar explícitamente el esquema ("problema 1 / problema 2 / abstracción /
-      refactorización") una vez en la introducción del notebook, como método
-      general que se repite en el resto del tema.
-- [ ] Revisar si el template (`6.1 HigherOrderFunctions-template.ipynb`) necesita
-      los mismos huecos añadidos como celdas vacías para rellenar en clase.
+- [x] Sección `map` de `PF-3/topic6/6.1 HigherOrderFunctions.ipynb` (2026-09-10):
+      añadidos `toChar` (problema 1) y `length` (problema 2) con el mismo
+      esqueleto, tomados de las ramas de clase; una celda que nombra lo que
+      comparten antes de la abstracción; y la celda de refactorización, donde los
+      dos problemas quedan en una línea vía `map`. La definición genérica lleva
+      ahora el comentario `// map generically`, para que la correspondencia con el
+      template sea exacta. Verificado que las cuatro celdas compilan con Scala 3 y
+      que hacen lo que dicen (`toChar(List(98,99,100)) == List('b','c','d')`,
+      `length(List("abc","hola","")) == List(3,4,0)`, igual antes y después de
+      refactorizar).
+- [x] Esquema nombrado explícitamente (problema 1 / problema 2 / abstracción /
+      refactorización) en una celda nueva tras la introducción, que además remite a
+      la sección __Functions as modularity devices__ de `PF-2/topic3/3.1
+      Functions.ipynb` —el mismo método un nivel de abstracción más abajo— y
+      señala la diferencia: allí lo que se repetía se abstraía en una función
+      normal; aquí lo que cambia entre los dos problemas es una operación, así que
+      el parámetro es una función y la abstracción, de orden superior.
+- [x] El template no necesitaba huecos nuevos para `map`: **ya los tenía**
+      (`// map example 1`, `// map example 2`, `// map generically`). Solo se le
+      añadió el hueco de la refactorización.
+- [x] `Filtering` y `FlatMapping` con el mismo esquema (2026-09-10). A Filtering,
+      que no tenía ningún problema concreto, se le añaden dos —`evens` sobre
+      `List[Int]` y `nonEmpty` sobre `List[String]`, en el estilo de guardas que ya
+      usa `filterR`, de modo que la abstracción es literalmente esas dos con la
+      guarda sustituida por `predicate(head)`— y la refactorización. A FlatMapping,
+      que ya tenía uno (`words`), se le añade el segundo (`chars`: de una lista de
+      palabras a la lista de sus caracteres, misma forma y distinta expansión) y su
+      refactorización, con lo que el "esta combinación es tan común que tiene
+      nombre" llega apoyado en dos casos y no en uno.
+      Verificado en ejecución: `evens(List(1,2,3,4)) == List(2,4)`,
+      `nonEmpty(List("a","","b")) == List("a","b")` y
+      `chars(List("ab","c")) == List('a','b','c')`, iguales antes y después de
+      refactorizar.
+- [x] __Corrección del diagnóstico anterior__: `FoldRight` y `FoldLeft` __ya
+      seguían el esquema completo__ (`sum`/`multiply` → `combine` → refactor;
+      `length`/`reverse` → `foldLeft` → refactor), así que no se han tocado. Y en
+      las dos ramas de clase (`MOS-25-26`, `VIC-25-26`) los marcadores
+      `example 1`/`example 2`/`generically` aparecían __solo__ en `map`.
+- [ ] Nota para futuras validaciones: este notebook usa sintaxis __fewer-braces__
+      (`xs.flatMap: x =>`, `xs.foldRight(z):`), que necesita Scala 3.3 — la versión
+      del curso. El `scalac` local es 3.0.0 y rechaza esas celdas, incluidas las que
+      ya estaban; para comprobarlas hay que usar el kernel del curso o instalar 3.3.
+- [x] Rutas de imagen corregidas en todo el repo (2026-09-10): eran __18
+      referencias en 10 ficheros__, todas apuntando un nivel por debajo de donde
+      están las imágenes (`../images/` en vez de `../../images/`). Afectaba a
+      `3.1 Functions`, `3.3 Sums`, `3.4 Isomorphisms`, `6.1 HigherOrderFunctions`
+      y `7.2 Data models`, cada uno con su template. Verificado que ya no queda
+      ninguna referencia de imagen roto en el repo.
 - [ ] Repasar `PF-3/topic5/5.1 Recursion.ipynb` con el mismo criterio, con menor
       prioridad.
 
