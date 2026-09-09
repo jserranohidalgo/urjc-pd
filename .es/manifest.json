@@ -1,0 +1,5 @@
+{
+  "_comment": "Procedencia de la traducción: por cada fichero, el commit y el hash del blob de master del que se tradujo, y el hash de cada celda markdown traducida. Para actualizar: comparar con master y retraducir solo lo que haya cambiado.",
+  "source_branch": "master",
+  "files": {}
+}
