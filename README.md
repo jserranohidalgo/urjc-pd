@@ -1,101 +1,109 @@
-This is the repository of the course on Declarative Programming taught at the Artificial 
-Intelligence Degree of the University Rey Juan Carlos. 
+> __Versión en español.__ Esta rama es la traducción de `master`, que está en inglés y es
+> la fuente de verdad: los cambios se hacen allí primero y luego se traen aquí. Ante
+> cualquier discrepancia, manda `master`. Los criterios y la terminología de la traducción
+> están en [`.es/glosario.md`](.es/glosario.md); de qué versión del original viene cada
+> fichero, en [`.es/manifest.json`](.es/manifest.json).
+
+Este es el repositorio de la asignatura de Programación Declarativa que se imparte en el
+Grado en Inteligencia Artificial de la Universidad Rey Juan Carlos.
 
 
-# Content 
+# Contenido
 
-The course material basically includes several notebooks on the following topics:
+El material de la asignatura consiste, básicamente, en varios notebooks sobre los temas siguientes:
 
 * PF-1
-  * Topic 1. [Introduction & schedule](PF-1/Intro.pdf) (spanish, URJC specifics)
-  * Topic 2. Strongly-typed languages and Scala
+  * Tema 1. [Presentación y planificación](PF-1/Intro.pdf) (en español, con los detalles de la URJC)
+  * Tema 2. Lenguajes de tipado fuerte y Scala
 * PF-2
-  * Topic 3. Algebraic data types
-  * Topic 4. [The Curry-Howard correspondence](https://github.com/jserranohidalgo/curry-howard-game)
+  * Tema 3. Tipos algebraicos de datos
+  * Tema 4. [La correspondencia de Curry-Howard](https://github.com/jserranohidalgo/curry-howard-game)
 * PF-3
-  * Topic 5. Recursive functions and data types
-  * Topic 6. Higher-order functions and modular programming
-  * Topic 7. Applications
+  * Tema 5. Funciones y tipos de datos recursivos
+  * Tema 6. Funciones de orden superior y programación modular
+  * Tema 7. Aplicaciones
 
-# The Curry-Howard Game
+# El juego de Curry-Howard
 
-Topic 4 comes with a game: [__The Curry-Howard Game__](https://github.com/jserranohidalgo/curry-howard-game).
-Given a proposition, the goal is to construct a proof of it — or to establish that no proof exists —
-by building, step by step, the program that inhabits the corresponding type. It runs in the browser,
-with nothing to install; see its repository for the details.
+El tema 4 viene con un juego: [__The Curry-Howard Game__](https://github.com/jserranohidalgo/curry-howard-game).
+Dada una proposición, el objetivo es construir una prueba de ella —o establecer que no existe
+ninguna— construyendo paso a paso el programa que habita el tipo correspondiente. Funciona en el
+navegador, sin instalar nada; los detalles, en su repositorio.
 
-# Launching notebooks
+# Cómo arrancar los notebooks
 
-To access these notebooks you need first to install [git](https://git-scm.com/) and clone this repository in your local drive: 
+Para acceder a estos notebooks hay que instalar primero [git](https://git-scm.com/) y clonar este
+repositorio en tu disco, en su versión en español:
 
-`> git clone https://github.com/jserranohidalgo/urjc-pd.git pd`
+`> git clone -b es https://github.com/jserranohidalgo/urjc-pd.git pd`
 
-Then, install `jupyter` (see instructions below) and run the program:
+Después, instala `jupyter` (las instrucciones están más abajo) y ejecuta el programa:
 
-`jupyter notebook`  or `jupyter lab`
+`jupyter notebook`  o `jupyter lab`
 
-in the root directory of the repository.
+en el directorio raíz del repositorio.
 
-Alternatively, you can skip the manual installation of `jupyter`
-and run it through [docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows) as follows:
+Como alternativa, puedes saltarte la instalación manual de `jupyter` y ejecutarlo con
+[docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows) así:
 
 `docker run -it --rm -p 8888:8888 -p 4040:4040 -m 4g -v "$PWD":/home/jovyan/work almondsh/almond:latest` (LINUX)
 
-`docker run -it --rm -p 8888:8888 -p 4040:4040 -m 4g -v <<c:/path/to/downloaded/folder>>:/home/jovyan/work almondsh/almond:latest` (WINDOWS)
+`docker run -it --rm -p 8888:8888 -p 4040:4040 -m 4g -v <<c:/ruta/a/la/carpeta/descargada>>:/home/jovyan/work almondsh/almond:latest` (WINDOWS)
 
-(also in the root directory of the repository)
+(también en el directorio raíz del repositorio)
 
-Finally, note that `jupyter` is already installed in the virtual environment MyApps (just for URJC users).
+Por último, nótese que `jupyter` viene ya instalado en el entorno virtual MyApps (solo para
+usuarios de la URJC).
 
-# Installing jupyter and the Scala kernel
+# Instalación de jupyter y del kernel de Scala
 
-To install jupyter and run Scala notebooks, follow these steps:
+Para instalar jupyter y poder ejecutar notebooks de Scala, sigue estos pasos:
 
-* Install the package manager [`conda`](https://docs.conda.io/en/latest/miniconda.html), or use `pip`, the python package manager.
-* Install [`jupyter`](https://jupyter.org/install) itself
-* Alternatively, you can also find jupyter notebooks for free when installing [anaconda](https://www.anaconda.com/products/individual-d).
-* Install [Java 8](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1096936). Take into account whether your architecture is 32-bit or 64-bit.
-* Install the Scala plugin [`almond`](https://almond.sh/docs/quick-start-install). 
+* Instala el gestor de paquetes [`conda`](https://docs.conda.io/en/latest/miniconda.html), o usa `pip`, el gestor de paquetes de python.
+* Instala [`jupyter`](https://jupyter.org/install).
+* Como alternativa, jupyter viene incluido al instalar [anaconda](https://www.anaconda.com/products/individual-d).
+* Instala [Java 8](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1096936). Ten en cuenta si tu arquitectura es de 32 o de 64 bits.
+* Instala el plugin de Scala [`almond`](https://almond.sh/docs/quick-start-install).
 
-For the last step, in order to install the Scala 3 version of the almond kernel, choose the following options: 
+Para este último paso, y con el fin de instalar la versión del kernel de almond para Scala 3, elige estas opciones:
 
 `./coursier launch --fork almond:0.14.0-RC14 --scala 3.3.1 -- --install --id scala33 --display-name "Scala 3.3"`
 
-### Possible problems when installing almond
+### Posibles problemas al instalar almond
 
-* On windows, I can't download the installation scripts of the `almond` Scala kernel through:
+* En windows no consigo descargar los scripts de instalación del kernel de Scala `almond` con:
 
 	> bitsadmin /transfer downloadCoursierCli https://git.io/coursier-cli "Í%%coursier"
 	> ...
 
-Likely, you are using powershell; use simple `cmd` instead. 
+Probablemente estés usando powershell; usa `cmd` a secas.
 
-Possibly, you will also need to use administration privileges (i.e., run CMD as admin).
+Puede que necesites además privilegios de administrador (es decir, abrir CMD como administrador).
 
 
-* In the thir step (".\coursier launch --fork ..."), the following error pops up:
+* En el tercer paso (".\coursier launch --fork ...") aparece el siguiente error:
 
-Exception in thream "main" java.lang.Exception: Unrecognized CPU architecture: x86. 
+Exception in thream "main" java.lang.Exception: Unrecognized CPU architecture: x86.
 
-Likely, you need a java version for 64 bits, but you installed one for 32 bits. Check which java version you have by typing: "java -d64 -version".
+Probablemente necesites una versión de java de 64 bits y hayas instalado una de 32. Comprueba qué versión de java tienes escribiendo: "java -d64 -version".
 
-* Now, the installation command hangs (most likely, on windows)
+* El comando de instalación se queda colgado (lo más probable, en windows)
 
-Execute the installation command with the verbose option enabled (`-v -v`):
+Ejecuta el comando de instalación con la opción de detalle activada (`-v -v`):
 
         .\coursier launch --fork almond -M almond.ScalaKernel -v -v -- --install
 
-When the program hangs, stop it (C-c C-c). Most likely, the last command that was attempted was something like "Running java ...". Copy-paste that java invocation and run it manually:
+Cuando el programa se quede colgado, párralo (C-c C-c). Lo más probable es que el último comando que intentó ejecutar fuese algo parecido a "Running java ...". Copia esa invocación de java y ejecútala a mano:
 
         java -Dscala-kernel.version=<...> -jar <...> --install
 
-Luckily, this will complete the installation of the almond kernel.
+Con suerte, así se completará la instalación del kernel de almond.
 
-* "Cannot find default main class. Specify one with -M or --main-class" (most likely, on linux)
+* "Cannot find default main class. Specify one with -M or --main-class" (lo más probable, en linux)
 
-Add the option `-M almond.ScalaKernel`  to the installation command, i.e.
+Añade la opción `-M almond.ScalaKernel` al comando de instalación, es decir:
 
         ./coursier launch --fork almond -M almond.ScalaKernel -- --install
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Esta obra está publicada bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia Creative Commons Attribution-ShareAlike 4.0 International</a>.
