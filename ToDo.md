@@ -5,7 +5,7 @@ copia/trabajo en este repo privado). Creado el 2026-09-07.
 
 ---
 
-## 1. Curry-Howard: actualizar con el nuevo juego
+## 1. Curry-Howard: actualizar con el nuevo juego — HECHO (2026-09-10)
 
 El juego es **The Curry–Howard Game** (repo
 [`jserranohidalgo/curry-howard-game`](https://github.com/jserranohidalgo/curry-howard-game),
@@ -26,56 +26,117 @@ soon" según el README), y está pensado como el primero de una familia de juego
 (uno por cada lógica/lenguaje: `λ→`, `λμ`, `λΠ`, `λμΠ`).
 El repo ya lista este curso (`urjc-pd`) en su tabla "Where it is used".
 
-- [x] Enlazar el juego desde el README principal de `urjc-pd` (2026-09-08): bullet
-      de Topic 4 con enlace a jugar, más una sección nueva "The Curry–Howard
-      Game". Hecho en local, rama `jserrano-master`, **sin commitear todavía**.
+- [x] Enlazar el juego desde el README. En este repo privado, el título de Topic 4
+      es ya un hiperenlace al repo del juego. En el público `urjc-pd` estaba hecho
+      en local (rama `jserrano-master`, sin commitear) con un bullet en Topic 4
+      más una sección "The Curry–Howard Game": conviene unificar las dos
+      versiones para que no divergan.
+- [ ] Valorar si añadir aquí también esa sección "The Curry–Howard Game", más
+      visible para el alumno que un enlace en el índice.
 - [ ] Valorar si se anima a los alumnos a instalar/usar el plugin de Claude Code
       como apoyo (requiere Python 3).
 
-### Propuesta de modificación de `PF-2/topic4/4.1 CurryHoward.ipynb`
+### Cómo quedó `PF-2/topic4/4.1 CurryHoward.ipynb` (rehecho, 2026-09-08/10)
 
-Comparación hecha (2026-09-08) entre la estructura actual del notebook (81
-celdas: refresco aritmética→tipos, proposiciones como tipos, pruebas como
-programas con un ejemplo reescrito 3 veces, tabla de reglas, 4 teoremas más,
-postura intuicionista con 3 no-teoremas, conclusión) y la charla del juego
-*"What is the Curry–Howard correspondence?"* (documentada en
-`curry-howard-game/spec/help.md`, sección "The first talk, slide by slide").
+La comparación con la charla del juego *"What is the Curry–Howard correspondence?"*
+(documentada en `curry-howard-game/spec/help.md`) identificó cuatro huecos —el
+momento eureka, el "giro de moneda", la secuencia agujero a agujero y el cierre
+con invitación a jugar—, y al aplicarlos se acabó reestructurando el notebook
+entero. El resultado, para no tener que releer el diff:
 
-La forma en que el notebook presenta la tabla de reglas (reglas de deducción
-natural → constructores/destructores ADT → tabla fusionada, celdas 23-32) ya
-coincide bien con el enfoque progresivo de la charla — no tocar eso. Los huecos
-concretos identificados, de menor a mayor esfuerzo:
+Notebook y template van a la par, de 81 a __82 celdas__ (se anadio bastante y se
+quito mas). El orden nuevo:
 
-- [ ] **Momento eureka de Curry y Howard** (bajo esfuerzo, alto valor). La celda
-      3 ya tiene las dos fotos, pero la celda 4 pasa directo a definir la
-      correspondencia en abstracto. La charla cuenta dos momentos concretos: qué
-      vio Curry en 1934 (derivación axiomática de `p→r` junto al combinador
-      `S (K g) f`, sin nada que los empareje) y qué vio Howard en 1969 (figura
-      de deducción natural de `a∧b→b∧a` junto al programa que la habita).
-      Insertar una celda breve entre 3 y 4 con esos dos ejemplos como gancho
-      narrativo, antes de la definición general.
-- [ ] **Nombrar el "giro de moneda"** (bajo esfuerzo). La charla usa una moneda
-      que gira entre lectura-de-lógico y lectura-de-programador como hilo
-      conductor visual. El notebook ya alterna programa/prueba lado a lado
-      (celdas 27-28 en adelante) pero nunca lo nombra como ritual repetido.
-      Añadir un callout la primera vez que aparece, tipo "▸ lo mismo, leído dos
-      veces", para que se repita mentalmente en los ejemplos posteriores.
-- [ ] **Secuencia "hole by hole"** (esfuerzo medio, el más valioso
-      pedagógicamente). La charla incluye 4 slides de una partida real
-      construyéndose paso a paso. El notebook reescribe el mismo programa 3
-      veces (idiomático → verboso → combinadores, celdas 33-42), que es otra
-      cosa: no muestra cómo se va rellenando el término. Añadir, junto al
-      ejemplo verboso, una secuencia corta con `???` que se va rellenando
-      agujero a agujero — el core loop del juego — antes de la versión final
-      con combinadores.
-- [ ] **Cierre con invitación a jugar** (bajo esfuerzo). La conclusión (celdas
-      79-80) menciona la familia de lógicas en un párrafo denso y no apunta a
-      ningún siguiente paso. Cerrar el notebook con una celda que invite a jugar
-      el ejemplo (`p∧(q∨r)→p∧q∨p∧r` o `a∧b→b∧a`) en el juego, enlazando el
-      mismo repo añadido al README.
-- [ ] Decidir alcance final antes de implementar (p.ej. si se salta el punto del
-      "hole by hole", que es el que más tiempo lleva) y aplicar los cambios
-      también al template (`4.1 CurryHoward-template.ipynb`, si existe).
+1. Titulo, fotos y el momento eureka (lo que vio Curry en 1934, lo que vio Howard
+   en 1969).
+2. Introduccion reescrita como __resumen de lo que vieron ambos__: los dos
+   slogans, y la tabla que extiende la correspondencia del tema anterior (tipo /
+   aritmetica / logica), que es lo que hace innecesaria la seccion "A refresher:
+   arithmetic and types", eliminada (y con ella el `Preamble` y el
+   `trait Isomorphic`, que solo la servian). Termina con la pregunta del tutorial
+   del juego —¿en que sentido son *exactamente* lo mismo?— y los dos gifs de la
+   moneda (`images/icon-lambda-to-turnstile.gif` y `icon-turnstile-to-lambda.gif`,
+   de `doc/icon/export/gif` del repo del juego; se eligieron los de una direccion
+   porque estan horneados sobre blanco, mientras el compuesto lo esta sobre el
+   `#f7f7f8` de la slide).
+3. `# Now play it`, al principio: se juega antes de la teoria.
+4. `# How proofs are made` — la deduccion natural con su tabla de reglas, y __el
+   ejemplo__ ($p \wedge (q \vee r) \rightarrow \ldots$) con su prueba escrita en la
+   __vista de lineas del juego__ (estilo Fitch: numeracion corrida, barras de
+   subprueba, `hyp¹`/`prem`, citas de tramos con guion), en lugar de la numeracion
+   `1 / 1.1 / 1.3.1` que habia. El formato se saco de
+   `engine/.../nj/Textual.scala` y los nombres de regla (`∧E₁`, `∨I₂`, `∨E²³`) de
+   `ToFigure.scala`. Los comentarios de `step2`/`step3` y de la vista combinada se
+   renumeraron a esas lineas.
+5. `# How programs are made` — la __tabla de reglas de type-driven development__
+   traida de `3.4 Isomorphisms.ipynb` (celda 21, con su attachment) en lugar de
+   las dos figuras al estilo Gentzen que habia; y el mismo ejemplo en programa,
+   con una tabla de su estructura en operaciones (lambda, `case` sobre el par,
+   `match`, `var`, construccion del par, `Left`/`Right`), en paralelo a la columna
+   de reglas de la prueba.
+6. `# Propositions as types` — arranca con "ya tenemos una prueba, ya tenemos un
+   programa, ¿en que sentido son lo mismo?" y responde con el diccionario. La
+   tabla de type-driven development que se repetia aqui esta fuera (era la misma
+   imagen que la de la seccion 5): en su lugar, el texto recorre la
+   correspondencia regla a regla contra las dos tablas ya vistas. Cierra el
+   callout de la moneda.
+7. `# Proofs as programs, step by step` — encuadrada como __el uso__ de la
+   correspondencia: si las pruebas son programas, para probar una tautologia se
+   traduce la proposicion a un tipo, se desarrolla el programa (type-driven
+   development, con agujeros) y se lee el resultado como prueba. Lleva la figura
+   del cruce (proposicion/tipo arriba, prueba/programa abajo, con flechas de doble
+   punta) y el "si y solo si" que lo legitima. Luego `step0`..`step3` y la vista
+   combinada, dibujada como la vista __Both / line for line__ del juego: el
+   programa a la izquierda con los nombres `s1..s9` (`s4` es el valor de la linea
+   4) y, en la columna del comentario, la linea de prueba que cada linea escribe.
+   Se sigue la notacion del juego tambien en las formulas, sin parentesis
+   redundantes (`p ∧ q ∨ p ∧ r`).
+8. `# More examples` — cada ejemplo se lee __tres veces__: el programa
+   idiomatico, tal como se escribiria en Scala; la prueba sola, en notacion
+   lineal; y el mismo programa __refactorizado__ para que la correspondencia se
+   vea sola, una linea de programa por linea de prueba con su regla al lado. La
+   entrada de la seccion explica que el refactor no es otro programa, sino el
+   mismo termino con cada paso nombrado: es justo lo que el Scala idiomatico
+   comprime (`case (f, x)` hace dos eliminaciones de golpe) y lo que un sistema
+   de pruebas, sin abreviaturas, tiene que desplegar. Las cuatro pruebas se
+   verificaron contra su termino: `x._1(x._2)`, `f(a)` bajo `Left`,
+   `a1(a)(a2(a))` y `nq(ifpq(p))`.
+   Tambien las dos figuras del momento eureka pasaron a bloque monoespaciado: la
+   de Howard en vista de lineas, y la derivacion de Curry (estilo Hilbert, sin
+   subpruebas ni `hyp`) conservando su columna de terminos.
+9. `# The intuitionistic stance` — el ejemplo que no es teorema intuicionista
+   aunque si clasico, con __el espacio de busqueda completo__: el arbol de las
+   cuatro jugadas posibles tras el lambda forzado, las dos ramas escritas en
+   codigo hasta donde llegan, y por que las cuatro mueren. La conclusion es por
+   agotamiento, no por falta de imaginacion.
+10. `# Proving classical theorems, by assuming them` — `ExcludedMiddle` y
+    `DoubleNegation` como premisas.
+11. `# Conclusion`.
+
+__Fuera la notacion logica en Scala__ (`type ⟶[A,B] = A => B`, `∧`, `∨`, `¬`,
+`⟷`, `Ax`, `⊥`, `Absurd`/`Or`/`And`) y las reimplementaciones que la usaban: solo
+anadia ruido. Se conservan `Not` y `<=>`, que son ASCII y los usan los ejemplos.
+Los simbolos logicos siguen, por supuesto, en las figuras de deduccion natural.
+
+Un fallo que se colo al quitar los alias y se detecto al convertir los ejemplos:
+el programa del cuarto ejemplo usaba `Absurd`, que era uno de los alias
+eliminados; ahora usa `Nothing`.
+
+Comprobado tras cada pasada: las celdas de codigo nuevas compilan con Scala 3
+(`scalac` sobre JDK 8; con el JDK del sistema, Scala 3.0.0 no arranca), y
+`S (K g) f` se verifico en ejecucion que es la composicion; ninguna celda usa
+nada definido mas abajo; los attachments y todas las rutas de imagen resuelven.
+De paso, corregidas rutas roscadas que ya venian de antes:
+`../images/natdedrules.png` en los dos ficheros y las dos fotos de la celda 3 del
+template, que apuntaban a `PF-2/images/`, inexistente.
+
+- [ ] Pendiente: los dos gifs viven ahora en `images/` de este repo privado; hay
+      que copiarlos al publico `urjc-pd` cuando se sincronice el notebook, o las
+      imagenes saldran rotas alli.
+- [ ] Pendiente tambien: decidir si en el template conviene dejar mas huecos de
+      los cuatro pasos. `4.2 CurryHoward-Exercises.ipynb` no necesita cambios:
+      comprobado que es autocontenido (tiene su propio `Preamble` con `Not`,
+      `ExcludedMiddle` y `DoubleNegation`) y no menciona ninguna seccion de 4.1.
 
 ## 2. Traducción al español
 

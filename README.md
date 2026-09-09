@@ -11,7 +11,7 @@ The course material basically includes several notebooks on the following topics
   * Topic 2. Strongly-typed languages and Scala
 * PF-2
   * Topic 3. Algebraic data types
-  * Topic 4. The Curry-Howard correspondence
+  * Topic 4. [The Curry-Howard correspondence](https://github.com/jserranohidalgo/curry-howard-game)
 * PF-3
   * Topic 5. Recursive functions and data types
   * Topic 6. Higher-order functions and modular programming
