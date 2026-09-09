@@ -36,10 +36,14 @@ El repo ya lista este curso (`urjc-pd`) en su tabla "Where it is used".
       así que nunca estuvo), ni en GitHub, ni en `urjc-pd-20-21`; y ninguna ref de
       ese repo menciona `curry-howard-game` en ningún fichero. La sección se ha
       escrito aquí desde cero.
-- [ ] Llevar al público `urjc-pd` el README y el notebook rehecho (con los dos
-      gifs de `images/`, o alli saldran roto).
-- [ ] Valorar si se anima a los alumnos a instalar/usar el plugin de Claude Code
-      como apoyo (requiere Python 3).
+- [x] Llevado al público `urjc-pd` (2026-09-10, commit `d79cbf1` allí): el
+      notebook rehecho y su template, el README, `PF-1/Intro.pdf` del 26-27, los
+      dos notebooks de HOF, `7.2 Data models` y los dos gifs. De paso desaparecen
+      las __10 rutas de imagen rotas__ que el público arrastraba. Verificado en
+      GitHub: gifs subidos, sección del README publicada y ninguna imagen roto.
+- [ ] Aparcadas, sin bloquear nada: si se anima a los alumnos a instalar el plugin
+      de Claude Code como tutor (requiere Python 3), y si el template del 4.1
+      necesita más huecos en la secuencia de los cuatro pasos.
 
 ### Cómo quedó `PF-2/topic4/4.1 CurryHoward.ipynb` (rehecho, 2026-09-08/10)
 
@@ -135,12 +139,17 @@ De paso, corregidas rutas roscadas que ya venian de antes:
 `../images/natdedrules.png` en los dos ficheros y las dos fotos de la celda 3 del
 template, que apuntaban a `PF-2/images/`, inexistente.
 
-- [ ] Pendiente tambien: decidir si en el template conviene dejar mas huecos de
-      los cuatro pasos. `4.2 CurryHoward-Exercises.ipynb` no necesita cambios:
+- [x] `4.2 CurryHoward-Exercises.ipynb`: se trajo del público el arreglo del
+      ejercicio 3 (commit `0b492b5`), que aquí faltaba desde 2024 — la solución
+      prueba ahora la equivalencia en las dos direcciones. Por lo demás no
+      necesitaba cambios:
       comprobado que es autocontenido (tiene su propio `Preamble` con `Not`,
       `ExcludedMiddle` y `DoubleNegation`) y no menciona ninguna seccion de 4.1.
 
-## 2. Traducción al español
+## 2. Traducción al español — SIGUIENTE
+
+La versión inglesa queda cerrada y publicada el 2026-09-10 (`d79cbf1` en el
+público, `0b492b5` aquí): ese es el punto de partida de la traducción.
 
 - [ ] Traducir el material del curso (notebooks de `PF-1`, `PF-2`, `PF-3`) al
       español.
@@ -149,7 +158,7 @@ template, que apuntaban a `PF-2/images/`, inexistente.
 - [ ] Decidir alcance: ¿traducir también templates, hojas de ejercicios y
       exámenes, o solo los notebooks "rellenos" de teoría?
 
-## 3. Recursión y funciones de orden superior (prioridad en HOF)
+## 3. Recursión y funciones de orden superior — HOF HECHO (2026-09-10)
 
 Contexto: en clase (ramas `MOS-25-26`, `VIC-25-26`, `origin/MOS-24-25`,
 `origin/VIC-24-25` del repo `urjc-pd`) se seguía sistemáticamente el esquema de
@@ -225,7 +234,7 @@ Acciones:
       `length`/`reverse` → `foldLeft` → refactor), así que no se han tocado. Y en
       las dos ramas de clase (`MOS-25-26`, `VIC-25-26`) los marcadores
       `example 1`/`example 2`/`generically` aparecían __solo__ en `map`.
-- [ ] Nota para futuras validaciones: este notebook usa sintaxis __fewer-braces__
+__Nota__ para futuras validaciones: este notebook usa sintaxis __fewer-braces__
       (`xs.flatMap: x =>`, `xs.foldRight(z):`), que necesita Scala 3.3 — la versión
       del curso. El `scalac` local es 3.0.0 y rechaza esas celdas, incluidas las que
       ya estaban; para comprobarlas hay que usar el kernel del curso o instalar 3.3.
@@ -235,10 +244,11 @@ Acciones:
       `3.1 Functions`, `3.3 Sums`, `3.4 Isomorphisms`, `6.1 HigherOrderFunctions`
       y `7.2 Data models`, cada uno con su template. Verificado que ya no queda
       ninguna referencia de imagen roto en el repo.
-- [ ] Repasar `PF-3/topic5/5.1 Recursion.ipynb` con el mismo criterio, con menor
-      prioridad.
+- [ ] Aparcado: repasar `PF-3/topic5/5.1 Recursion.ipynb`. Allí el hueco es de otra
+      naturaleza —en clase detallas más la derivación paso a paso, pero no sigues
+      problema1/problema2—, así que es otro tipo de trabajo.
 
-## 4. Extender las hojas de ejercicios con material de exámenes
+## 4. Extender las hojas de ejercicios con material de exámenes — APLAZADO
 
 - [ ] Añadir a `PF-3/topic6/6.2 HigherOrderFunctions-exercises.ipynb` ejercicios
       adaptados de exámenes reales. Candidatos a revisar:
