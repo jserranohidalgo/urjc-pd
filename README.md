@@ -11,11 +11,18 @@ The course material basically includes several notebooks on the following topics
   * Topic 2. Strongly-typed languages and Scala
 * PF-2
   * Topic 3. Algebraic data types
-  * Topic 4. The Curry-Howard correspondence
+  * Topic 4. [The Curry-Howard correspondence](https://github.com/jserranohidalgo/curry-howard-game)
 * PF-3
   * Topic 5. Recursive functions and data types
   * Topic 6. Higher-order functions and modular programming
   * Topic 7. Applications
+
+# The Curry-Howard Game
+
+Topic 4 comes with a game: [__The Curry-Howard Game__](https://github.com/jserranohidalgo/curry-howard-game).
+Given a proposition, the goal is to construct a proof of it — or to establish that no proof exists —
+by building, step by step, the program that inhabits the corresponding type. It runs in the browser,
+with nothing to install; see its repository for the details.
 
 # Launching notebooks
 
