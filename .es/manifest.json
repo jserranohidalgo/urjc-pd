@@ -1,5 +1,47 @@
 {
-  "_comment": "Procedencia de la traducción: por cada fichero, el commit y el hash del blob de master del que se tradujo, y el hash de cada celda markdown traducida. Para actualizar: comparar con master y retraducir solo lo que haya cambiado.",
-  "source_branch": "master",
-  "files": {}
+ "_comment": "Procedencia de la traducción: por cada fichero, el commit y el hash del blob de master del que se tradujo, y el hash de cada celda markdown traducida. Para actualizar: comparar con master y retraducir solo lo que haya cambiado.",
+ "source_branch": "master",
+ "files": {
+  "PF-1/topic2/2.1 DynamicTyping.ipynb": {
+   "source_blob": "d84188fee5d12ff7e86bb0354d23dc0aed62031c",
+   "cells": {
+    "dbd6fdacef7c2360a578b18ef95105f11d7f5657": "694c74ab25358211b7c43f9b52bef66edd3839f8",
+    "7bcb12d58f0f7fa24b58a2b84878e9cea46c49f6": "9066019cde26df9bec79629914d9f858a3ab06a3",
+    "9a6dd9070d0b395fe654e56503a2c6c4af8f1daf": "e899c1016f031eb0a59c96fa26f5cf60cb6166d5",
+    "0ec32eb701991540dabcec69a9f7296f52fb44f0": "770e4c976d8722b8e99c4310221acda39498d41c",
+    "a22a140669820cf7004284256e201dcf2286607a": "b77dee1c974e029d4e5fff9c0cca5522764b824b",
+    "71145146f0c6a59ee7aaead428a65f0e3ed4fb89": "0ea60d784ac03c4c91148505423ef7fd5a66342d",
+    "409c6de736a30e7220117e3880755a63f8817cb0": "3fea55d2bebed315a95d9f52a2c166ddca2cb7b2",
+    "432acfa49afa310cb36b63c9275286a797535e5b": "a3280d4ce818342fde715240e6a51bfcd89682b9",
+    "57828db01223c95aef51fbebb0693c2df940608d": "d890ebb87112880a0095ea0b2817ab978691ba18",
+    "12ec28417940387a953453ed0f02463b9900412a": "3364fb02053c9619a2a2a74a00d991d7204d2f76",
+    "72de1eabbd0fcca286f02355c4452d9d3c639aa7": "499e02814a1e540634d7fa4f0433c5ef94e13cff",
+    "99c03cf32630eb47b7efa27b4612f9dd749c86c8": "54b5176a2a4a8b40858007d7d3acbde93ecbdac7",
+    "b69eb96533e1b29556b97a07e634b8bafb10ddb3": "05fbeefaa923b32ba80ebfca4d8837155ff8dcdc",
+    "93a51a7a62d57e1f8eff696de7ada930217be424": "e446abe97f53d3e830a490190146b9d61544e035",
+    "dd90a5c74313de2727db72e1ca3f90b5c1f14055": "1813041f5a3dfa020de2cf66b9a6b59ce134ff71"
+   }
+  },
+  "PF-1/topic2/2.1 DynamicTyping-Template.ipynb": {
+   "source_blob": "9194eefce22cae16a7d12de0ec3d36794bc0906b",
+   "cells": {
+    "dbd6fdacef7c2360a578b18ef95105f11d7f5657": "694c74ab25358211b7c43f9b52bef66edd3839f8",
+    "7bcb12d58f0f7fa24b58a2b84878e9cea46c49f6": "9066019cde26df9bec79629914d9f858a3ab06a3",
+    "9a6dd9070d0b395fe654e56503a2c6c4af8f1daf": "e899c1016f031eb0a59c96fa26f5cf60cb6166d5",
+    "0ec32eb701991540dabcec69a9f7296f52fb44f0": "770e4c976d8722b8e99c4310221acda39498d41c",
+    "a22a140669820cf7004284256e201dcf2286607a": "b77dee1c974e029d4e5fff9c0cca5522764b824b",
+    "71145146f0c6a59ee7aaead428a65f0e3ed4fb89": "0ea60d784ac03c4c91148505423ef7fd5a66342d",
+    "80d58bcd3477d56d1eeaf1f027560503542c3bf8": "3fea55d2bebed315a95d9f52a2c166ddca2cb7b2",
+    "432acfa49afa310cb36b63c9275286a797535e5b": "a3280d4ce818342fde715240e6a51bfcd89682b9",
+    "57828db01223c95aef51fbebb0693c2df940608d": "d890ebb87112880a0095ea0b2817ab978691ba18",
+    "12ec28417940387a953453ed0f02463b9900412a": "3364fb02053c9619a2a2a74a00d991d7204d2f76",
+    "72de1eabbd0fcca286f02355c4452d9d3c639aa7": "499e02814a1e540634d7fa4f0433c5ef94e13cff",
+    "99c03cf32630eb47b7efa27b4612f9dd749c86c8": "54b5176a2a4a8b40858007d7d3acbde93ecbdac7",
+    "b69eb96533e1b29556b97a07e634b8bafb10ddb3": "05fbeefaa923b32ba80ebfca4d8837155ff8dcdc",
+    "93a51a7a62d57e1f8eff696de7ada930217be424": "e446abe97f53d3e830a490190146b9d61544e035",
+    "dd90a5c74313de2727db72e1ca3f90b5c1f14055": "1813041f5a3dfa020de2cf66b9a6b59ce134ff71"
+   }
+  }
+ },
+ "source_commit": "729129eb0b7cddd8d385ed505be133f4d9968bd9"
 }
