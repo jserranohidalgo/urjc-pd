@@ -19,19 +19,10 @@ The course material basically includes several notebooks on the following topics
 
 # The Curry-Howard Game
 
-Topic 4 comes with a game: [__The Curry-Howard Game__](https://jserranohidalgo.github.io/curry-howard-game/)
-([sources](https://github.com/jserranohidalgo/curry-howard-game)). It hands you a proposition and an
-empty program, and asks you to finish it: you pick a hole, the game offers you the rules that apply
-to that goal, and every move you make writes both a line of a proof and a piece of a program. It runs
-in the browser, with no account and nothing to install, and it carries two talks of its own — one on
-what the correspondence is, and one on how the game is played.
-
-Three goals to start with:
-
-* `a /\ b -> b /\ a`, Howard's own example, which takes two moves;
-* `p /\ (q \/ r) -> p /\ q \/ p /\ r`, the one the notebook of Topic 4 develops step by step;
-* `p \/ ~p`, which cannot be won — and finding out *why* is what the last sections of that notebook
-  are about.
+Topic 4 comes with a game: [__The Curry-Howard Game__](https://github.com/jserranohidalgo/curry-howard-game).
+Given a proposition, the goal is to construct a proof of it — or to establish that no proof exists —
+by building, step by step, the program that inhabits the corresponding type. It runs in the browser,
+with nothing to install; see its repository for the details.
 
 # Launching notebooks
 
