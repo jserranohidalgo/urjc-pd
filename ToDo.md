@@ -26,13 +26,18 @@ soon" según el README), y está pensado como el primero de una familia de juego
 (uno por cada lógica/lenguaje: `λ→`, `λμ`, `λΠ`, `λμΠ`).
 El repo ya lista este curso (`urjc-pd`) en su tabla "Where it is used".
 
-- [x] Enlazar el juego desde el README. En este repo privado, el título de Topic 4
-      es ya un hiperenlace al repo del juego. En el público `urjc-pd` estaba hecho
-      en local (rama `jserrano-master`, sin commitear) con un bullet en Topic 4
-      más una sección "The Curry–Howard Game": conviene unificar las dos
-      versiones para que no divergan.
-- [ ] Valorar si añadir aquí también esa sección "The Curry–Howard Game", más
-      visible para el alumno que un enlace en el índice.
+- [x] Enlazar el juego desde el README de este repo privado (2026-09-10): el
+      título de Topic 4 es un hiperenlace al repo del juego, y hay una sección
+      nueva "The Curry-Howard Game" con el enlace para jugar, las dos charlas y
+      tres objetivos para empezar.
+      Nota: la versión anterior de este punto decía que estaba hecho en el repo
+      público `urjc-pd`, en una rama `jserrano-master` sin commitear. **Esa rama
+      no existe**: no está en el clone de `~/Documents/urjc-pd` (ni en su reflog,
+      así que nunca estuvo), ni en GitHub, ni en `urjc-pd-20-21`; y ninguna ref de
+      ese repo menciona `curry-howard-game` en ningún fichero. La sección se ha
+      escrito aquí desde cero.
+- [ ] Llevar al público `urjc-pd` el README y el notebook rehecho (con los dos
+      gifs de `images/`, o alli saldran roto).
 - [ ] Valorar si se anima a los alumnos a instalar/usar el plugin de Claude Code
       como apoyo (requiere Python 3).
 
@@ -130,9 +135,6 @@ De paso, corregidas rutas roscadas que ya venian de antes:
 `../images/natdedrules.png` en los dos ficheros y las dos fotos de la celda 3 del
 template, que apuntaban a `PF-2/images/`, inexistente.
 
-- [ ] Pendiente: los dos gifs viven ahora en `images/` de este repo privado; hay
-      que copiarlos al publico `urjc-pd` cuando se sincronice el notebook, o las
-      imagenes saldran rotas alli.
 - [ ] Pendiente tambien: decidir si en el template conviene dejar mas huecos de
       los cuatro pasos. `4.2 CurryHoward-Exercises.ipynb` no necesita cambios:
       comprobado que es autocontenido (tiene su propio `Preamble` con `Not`,

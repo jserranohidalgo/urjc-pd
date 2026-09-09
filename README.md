@@ -17,6 +17,22 @@ The course material basically includes several notebooks on the following topics
   * Topic 6. Higher-order functions and modular programming
   * Topic 7. Applications
 
+# The Curry-Howard Game
+
+Topic 4 comes with a game: [__The Curry-Howard Game__](https://jserranohidalgo.github.io/curry-howard-game/)
+([sources](https://github.com/jserranohidalgo/curry-howard-game)). It hands you a proposition and an
+empty program, and asks you to finish it: you pick a hole, the game offers you the rules that apply
+to that goal, and every move you make writes both a line of a proof and a piece of a program. It runs
+in the browser, with no account and nothing to install, and it carries two talks of its own — one on
+what the correspondence is, and one on how the game is played.
+
+Three goals to start with:
+
+* `a /\ b -> b /\ a`, Howard's own example, which takes two moves;
+* `p /\ (q \/ r) -> p /\ q \/ p /\ r`, the one the notebook of Topic 4 develops step by step;
+* `p \/ ~p`, which cannot be won — and finding out *why* is what the last sections of that notebook
+  are about.
+
 # Launching notebooks
 
 To access these notebooks you need first to install [git](https://git-scm.com/) and clone this repository in your local drive: 
