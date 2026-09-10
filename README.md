@@ -97,5 +97,63 @@ Add the option `-M almond.ScalaKernel`  to the installation command, i.e.
 
         ./coursier launch --fork almond -M almond.ScalaKernel -- --install
 
+# Git branches
+
+The course material lives in two forms: full notebooks, and a _template_ version of each
+one. Theory classes — except for the very first, presentation session — don't use slides:
+instead, I go through the template notebooks and fill them in live, explaining concepts by
+writing illustrative examples as we go. What ends up in a template is usually close to its
+corresponding full notebook, but classroom discussion often leads to extra examples that
+aren't in it.
+
+After each class, I push the updated templates to the branch of your course (`MOS-26-27` or
+`VIC-26-27`), so that everyone has access to what was written in class.
+
+You are encouraged to bring your laptop and fill in the templates along with me as the
+class goes. To do so, create a personal branch off the course branch and work there —
+__don't commit directly to `MOS-26-27`/`VIC-26-27`__, or your changes will conflict with the
+ones I push after class. Your personal branch is your own version of the course branch.
+
+Practice classes work the same way, except there is no template version of the problem
+sets: I fill in the actual exercise notebooks directly, and push the changes to the course
+branch just as with the theory notebooks. You should do the same on your personal branch.
+
+### Setting up your personal branch
+
+Create it once, off the course branch (`VIC-26-27` in this example), and switch to it:
+
+```sh
+git checkout VIC-26-27
+git checkout -b <your-branch-name>
+```
+
+### Saving your changes after each class
+
+Commit what you filled in during the session, with a message that identifies the class:
+
+```sh
+git add -A
+git commit -m "Class 1/10/26"
+```
+
+### Updating your local course branch
+
+Before switching branches, make sure your own changes are committed (see above). Then,
+to bring in the templates I pushed after class:
+
+```sh
+git checkout VIC-26-27
+git pull
+```
+
+and switch back to your personal branch to keep working:
+
+```sh
+git checkout <your-branch-name>
+```
+
+This is enough git to follow the course, but it's only a thin slice of what git can do. If
+you want to go deeper, [_Pro Git_](https://git-scm.com/book/en/v2) is the reference: free,
+thorough, and available online.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
