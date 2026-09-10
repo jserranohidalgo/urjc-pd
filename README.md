@@ -1,9 +1,3 @@
-> __Versión en español.__ Esta rama es la traducción de `master`, que está en inglés y es
-> la fuente de verdad: los cambios se hacen allí primero y luego se traen aquí. Ante
-> cualquier discrepancia, manda `master`. Los criterios y la terminología de la traducción
-> están en [`.es/glosario.md`](.es/glosario.md); de qué versión del original viene cada
-> fichero, en [`.es/manifest.json`](.es/manifest.json).
-
 Este es el repositorio de la asignatura de Programación Declarativa que se imparte en el
 Grado en Inteligencia Artificial de la Universidad Rey Juan Carlos.
 
