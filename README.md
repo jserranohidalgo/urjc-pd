@@ -99,5 +99,65 @@ Añade la opción `-M almond.ScalaKernel` al comando de instalación, es decir:
 
         ./coursier launch --fork almond -M almond.ScalaKernel -- --install
 
+# Ramas de git
+
+El material de la asignatura vive en dos formas: los notebooks completos, y una versión
+_plantilla_ de cada uno. En las clases de teoría —salvo la primera, la de presentación— no
+uso diapositivas: en su lugar, recorro los notebooks plantilla y los voy rellenando en
+directo, explicando los conceptos mediante la programación de ejemplos ilustrativos. Lo que
+queda en la plantilla suele parecerse bastante al notebook completo correspondiente, pero es
+habitual que en clase surjan dudas que den pie a ejemplos adicionales que no están en él.
+
+Al terminar cada clase, subo las plantillas actualizadas a la rama de tu curso (`MOS-26-27` o
+`VIC-26-27`), para que todo el mundo tenga acceso a lo que se hizo en clase.
+
+Se anima a traer el portátil a clase y rellenar las plantillas a la vez que yo. Para ello,
+crea una rama personal a partir de la rama del curso y trabaja ahí —__no hagas commit
+directamente en `MOS-26-27`/`VIC-26-27`__, o tus cambios entrarán en conflicto con los que
+suba yo después de clase. Tu rama personal es tu propia versión de la rama del curso.
+
+Las clases de problemas funcionan igual, salvo que no hay versión plantilla de las hojas de
+problemas: relleno directamente los notebooks de ejercicios, y subo los cambios a la rama del
+curso igual que con los notebooks de teoría. Haz tú lo mismo en tu rama personal.
+
+### Configurar tu rama personal
+
+Créala una vez, a partir de la rama del curso (`VIC-26-27` en este ejemplo), y cámbiate a
+ella:
+
+```sh
+git checkout VIC-26-27
+git checkout -b <nombre-de-tu-rama>
+```
+
+### Guardar tus cambios después de cada clase
+
+Haz commit de lo que hayas rellenado durante la sesión, con un mensaje que identifique la
+clase:
+
+```sh
+git add -A
+git commit -m "Clase 1/10/26"
+```
+
+### Actualizar tu rama local del curso
+
+Antes de cambiar de rama, asegúrate de que tus propios cambios están comiteados (ver
+arriba). Después, para traerte las plantillas que subí tras la clase:
+
+```sh
+git checkout VIC-26-27
+git pull
+```
+
+y vuelve a tu rama personal para seguir trabajando:
+
+```sh
+git checkout <nombre-de-tu-rama>
+```
+
+Con esto tienes suficiente git para seguir el curso, pero es solo una pequeña parte de lo
+que git puede hacer. Si quieres profundizar, [_Pro Git_](https://git-scm.com/book/en/v2) es
+la referencia: gratuito, completo, y disponible en línea.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Esta obra está publicada bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia Creative Commons Attribution-ShareAlike 4.0 International</a>.
