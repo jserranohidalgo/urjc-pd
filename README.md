@@ -1,5 +1,5 @@
-This is the repository of the course on Declarative Programming taught at the Artificial 
-Intelligence Degree of the University Rey Juan Carlos. 
+This is the repository of the course on Declarative Programming taught at the Computer 
+Science Degree of the University Rey Juan Carlos. 
 
 
 # Content 
