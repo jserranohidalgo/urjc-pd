@@ -146,10 +146,35 @@ template, que apuntaban a `PF-2/images/`, inexistente.
       comprobado que es autocontenido (tiene su propio `Preamble` con `Not`,
       `ExcludedMiddle` y `DoubleNegation`) y no menciona ninguna seccion de 4.1.
 
-## 2. Traducción al español — SIGUIENTE
+## 2. Traducción al español — EN CURSO (19 de 38 notebooks)
 
-La versión inglesa queda cerrada y publicada el 2026-09-10 (`d79cbf1` en el
+La versión inglesa quedó cerrada y publicada el 2026-09-10 (`d79cbf1` en el
 público, `0b492b5` aquí): ese es el punto de partida de la traducción.
+
+__Cómo continuar: [`.es/README.md`](.es/README.md)__, que lleva el estado, los
+pendientes con su volumen, el procedimiento y los invariantes. En resumen:
+
+- La rama __`es`__ (en este repo, ya pusheada) es la traducción. Es __huérfana__ a
+  propósito: si descendiera de `master`, subirla al público publicaría `others/`
+  con las entregas de los alumnos. __No se fusiona nunca__ en ninguna dirección;
+  se regenera.
+- La tubería está en `.es/apply_es.py`, con los módulos de traducción en `.es/t/`.
+  Traduce en memoria, valida y solo entonces escribe el commit en `es`.
+- `.es/manifest.json` (en la rama `es`) guarda de qué blob de `master` salió cada
+  fichero, así que "qué hay que retraducir" es un dato calculado.
+- El glosario está en `.es/glosario.md` (en la rama `es`). Decidido: _hole_ →
+  __hueco__; _pattern matching_ sin traducir; `foldRight`/`map`/`filter`/`flatMap`
+  tampoco, por ser nombres de función.
+
+- [x] Hecho: todo `PF-1/topic2` (2.1 a 2.5 con sus templates), el README en
+      español, y de `topic3` la intro, los ejercicios de 3.1, `3.2 Products`,
+      `3.3 Sums` y `3.4 Isomorphisms` con template y ejercicios.
+- [ ] Pendientes: `3.1 Functions` (el mayor, 3119 palabras), todo `topic4`,
+      `topic5`, `topic6` y `topic7`. La lista con volúmenes, en `.es/README.md`.
+- [ ] La rama `es` __no se ha subido al repo público__ todavía, y no debería
+      hasta que la traducción esté completa o al menos coherente por temas.
+- [ ] Fuera de alcance por ahora: el texto incrustado en las figuras
+      `images/*.svg`, que habría que redibujar.
 
 - [ ] Traducir el material del curso (notebooks de `PF-1`, `PF-2`, `PF-3`) al
       español.
