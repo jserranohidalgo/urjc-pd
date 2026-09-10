@@ -1,5 +1,5 @@
 Este es el repositorio de la asignatura de Programación Declarativa que se imparte en el
-Grado en Inteligencia Artificial de la Universidad Rey Juan Carlos.
+Grado en Ingeniería Informática de la Universidad Rey Juan Carlos.
 
 
 # Contenido
