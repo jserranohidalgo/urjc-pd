@@ -2,6 +2,11 @@
 
 Describe el formato del CSV de calificaciones y cómo se anotan las notas y el feedback en los notebooks de los alumnos. Las instrucciones son genéricas y reutilizables para cualquier examen.
 
+> __Otras guías de este repositorio.__ Esta es la guía de evaluación. Para la
+> __traducción al español__ del material —la rama `es`, cómo invocar el aplicador
+> `.es/apply_es.py` y qué invariantes no romper— ver [`.es/README.md`](.es/README.md).
+> Las tareas en curso y su estado están en [`ToDo.md`](ToDo.md).
+
 ---
 
 ## Estructura de ficheros
