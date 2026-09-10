@@ -14,28 +14,10 @@ revés: la rama se *regenera*, guiada por `.es/manifest.json`.
 
 ## Estado (2026-09-10)
 
-19 de 38 notebooks, 563 celdas markdown. Hecho:
-
-- todo `PF-1/topic2` (2.1 a 2.5, con sus templates)
-- el README en español
-- `PF-2/topic3`: `3 Intro`, `3.1 Functions-Exercises`, `3.2 Products`, `3.3 Sums`,
-  `3.4 Isomorphisms` (con template y ejercicios)
-
-Pendientes, con su prosa aproximada:
-
-| fichero | palabras |
-|---|---|
-| `PF-2/topic3/3.1 Functions.ipynb` (+template) | 3119 |
-| `PF-2/topic4/4.1 CurryHoward.ipynb` (+template) | 3910 |
-| `PF-2/topic4/4.2 CurryHoward-Exercises.ipynb` | 273 |
-| `PF-3/topic5/5.1 Recursion.ipynb` (+templates) | 911 |
-| `PF-3/topic5/5.2 Recursion-exercises.ipynb` | 769 |
-| `PF-3/topic6/6.1 HigherOrderFunctions.ipynb` (+template) | 2123 |
-| `PF-3/topic6/6.2 HigherOrderFunctions-exercises.ipynb` | 916 |
-| `PF-3/topic7/7.1 Scala Collections.ipynb` (+template) | 548 |
-| `PF-3/topic7/7.2 Data models.ipynb` (+template) | 760 |
-| `PF-3/topic7/7.3 Games.ipynb` (+template) | 2055 |
-| `PF-3/topic7/ProblemSet6.ipynb` (+Sol) | 371 |
+**Completa: 38 de 38 notebooks.** Todos los ficheros del manifiesto están al día respecto
+al `master` del que se tradujeron (comprobado con el script de la sección
+"El manifiesto"). Pendiente solo el paso de publicación: `git push public es:es` (ver
+`CLAUDE.md`).
 
 Fuera de alcance: los exámenes de `exams/` (ya están en español),
 `PF-3/topic7/wordle/`, y el texto incrustado en las figuras `images/*.svg`.
