@@ -1,5 +1,5 @@
-This is the repository of the course on Declarative Programming taught at the Artificial 
-Intelligence Degree of the University Rey Juan Carlos. 
+This is the repository of the course on Declarative Programming taught at the Computer 
+Science Degree of the University Rey Juan Carlos. 
 
 > __Spanish version.__ A Spanish translation of this material lives on the [`es`](../../tree/es)
 > branch. This branch is the source of truth: changes are made here first, and the translation is
