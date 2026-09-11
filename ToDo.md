@@ -336,3 +336,31 @@ el que se usa para coordinar con el resto del profesorado:
       Móstoles cae en sábado") no explica las 0h de VIC —la razón es que las
       clases empiezan el 10-9—; y en HORARIOS hay una errata:
       "VIC L L(09:00 - 11:00)".
+
+## 6. AGENTS.md — HECHO (2026-09-11)
+
+Hay dos `AGENTS.md` distintos, con audiencias distintas, que **nunca deben
+mezclarse entre sí** (ni por merge ni por cherry-pick):
+
+- **`AGENTS.md` en `master`** (este repo privado): guía de evaluación
+  (formato del CSV de calificaciones, cómo anotar notas y feedback en los
+  notebooks). Antes era un symlink a `CLAUDE.md`; ahora es al revés —
+  `AGENTS.md` es el fichero real y `CLAUDE.md` es un symlink a él, porque
+  `AGENTS.md` es la convención que leen otras herramientas de agente además
+  de Claude Code.
+- **`public/AGENTS.md`** en `master`: borrador (en inglés) del `AGENTS.md`
+  para alumnos — remite a `README.md` para instalar jupyter/almond y para
+  el flujo de ramas de git. Es la fuente de verdad de la que salen las
+  demás copias.
+
+- [x] Invertido el symlink en `master` y creado `public/AGENTS.md`
+      (commit `187cbc3`).
+- [x] Copiado como `AGENTS.md` en la raíz de `master-public` (inglés,
+      commit `f2947d2` allí) y traducido al español en `es` (commit
+      `8a846cb`), `MOS-26-27` (`46df0c8`) y `VIC-26-27` (`5f02898`) — ese
+      español es idéntico en las tres ramas, igual que `README.md`.
+      Publicado en los dos remotos (`origin` y `public`).
+- [ ] Si se retoca el texto para alumnos, hacerlo primero en
+      `public/AGENTS.md` (master) y propagar desde ahí a `master-public` y,
+      traducido, a `es`/`MOS-26-27`/`VIC-26-27` — no editar cada copia por
+      separado.
