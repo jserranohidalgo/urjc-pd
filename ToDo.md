@@ -146,7 +146,7 @@ template, que apuntaban a `PF-2/images/`, inexistente.
       comprobado que es autocontenido (tiene su propio `Preamble` con `Not`,
       `ExcludedMiddle` y `DoubleNegation`) y no menciona ninguna seccion de 4.1.
 
-## 2. Traducción al español — TRADUCCIÓN COMPLETA, falta publicar (2026-09-10)
+## 2. Traducción al español — COMPLETA Y PUBLICADA (2026-09-16)
 
 La versión inglesa quedó cerrada y publicada el 2026-09-10 (`d79cbf1` en el
 público, `0b492b5` aquí): ese es el punto de partida de la traducción.
@@ -170,9 +170,9 @@ procedimiento y los invariantes. En resumen:
       completos, `PF-3/topic5`, `topic6` y `topic7` completos, con templates,
       ejercicios y `ProblemSet6`). Todos al día respecto al `master` del que se
       tradujeron.
-- [ ] La rama `es` __no se ha subido al repo público__ todavía. El comando es
-      `git push public es:es`, seguro por construcción al ser huérfana — ver
-      `CLAUDE.md`.
+- [x] Publicada en el repo público el 2026-09-16 (`8a846cb`), idéntica a la del
+      privado. Para volver a publicarla tras regenerarla:
+      `git push urjc-pd-public es:es`, seguro por construcción al ser huérfana.
 - [ ] Fuera de alcance por ahora: el texto incrustado en las figuras
       `images/*.svg`, que habría que redibujar.
 

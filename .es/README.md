@@ -12,12 +12,19 @@ conjunto público y `git push urjc-pd-public es:es` es seguro por construcción.
 **Nunca se fusiona en ninguna dirección.** No se hace merge de `master` en `es` ni al
 revés: la rama se *regenera*, guiada por `.es/manifest.json`.
 
-## Estado (2026-09-10)
+## Estado (2026-09-16)
 
-**Completa: 38 de 38 notebooks.** Todos los ficheros del manifiesto están al día respecto
-al `master` del que se tradujeron (comprobado con el script de la sección
-"El manifiesto"). Pendiente solo el paso de publicación: `git push public es:es` (ver
-`CLAUDE.md`).
+**Completa y publicada: 38 de 38 notebooks.** Todos los ficheros del manifiesto están al
+día respecto al `master` del que se tradujeron (comprobado con el script de la sección
+"El manifiesto": 38 ficheros, 0 desactualizados). La rama está publicada en el repo
+público y coincide con la del privado.
+
+Para volver a publicarla después de regenerarla —el remoto se llama `urjc-pd-public` en
+este clon, no `public`:
+
+```sh
+git push urjc-pd-public es:es
+```
 
 Fuera de alcance: los exámenes de `exams/` (ya están en español),
 `PF-3/topic7/wordle/`, y el texto incrustado en las figuras `images/*.svg`.
