@@ -88,12 +88,6 @@ es decir, una lista de enteros es la secuencia vacía (representada por el tipo 
 
 ("The recursive function is implemented as follows:", "La función recursiva se implementa de la siguiente manera:"),
 
-("""Some comments:
-- The recursive function is implemented in a _type-driven development_ style: we proceed, step-by-step, analysing the types of input data that are available, and the types of output that we have to generate. This leads to a divide-and-conquer problem solving strategy and hugely facilitates the implementation.
-- The recursive function is less efficient, since the stack will blow up with very long lists.""",
- """Algunos comentarios:
-- La función recursiva está implementada al estilo del _desarrollo dirigido por tipos_: procedemos, paso a paso, analizando los tipos de los datos de entrada disponibles, y los tipos de salida que tenemos que generar. Esto lleva a una estrategia de resolución de problemas de divide y vencerás y facilita enormemente la implementación.
-- La función recursiva es menos eficiente, ya que la pila se desbordará con listas muy largas."""),
 
 ("### Tail-recursive functions", "### Funciones recursivas finales"),
 
@@ -173,4 +167,41 @@ es decir, una lista de enteros es la secuencia vacía (representada por el tipo 
 ("// Really inefficient", "// Realmente ineficiente"),
 ("// Tail-recursive, efficiently", "// Recursiva final, eficientemente"),
 ("// invoke", "// invocar"),
+
+# El template conserva el orden original de las viñetas
+("""Some comments:
+- The recursive function is implemented in a _type-driven development_ style: we proceed, step-by-step, analysing the types of input data that are available, and the types of output that we have to generate. This leads to a divide-and-conquer problem solving strategy and hugely facilitates the implementation.
+- The recursive function is less efficient, since the stack will blow up with very long lists.""",
+ """Algunos comentarios:
+- La función recursiva está implementada al estilo del _desarrollo dirigido por tipos_: procedemos, paso a paso, analizando los tipos de los datos de entrada disponibles, y los tipos de salida que tenemos que generar. Esto lleva a una estrategia de resolución de problemas de divide y vencerás y facilita enormemente la implementación.
+- La función recursiva es menos eficiente, ya que la pila se desbordará con listas muy largas."""),
+
+# Patrones de diseño: divide y vencerás, iterativo (2026-10-07)
+('Some comments:\n- The recursive function is less efficient, since the stack will blow up with very long lists.\n- The recursive function is implemented in a _type-driven development_ style: we proceed, step-by-step, analysing the types of input data that are available, and the types of output that we have to generate. This leads to a divide-and-conquer problem solving strategy and hugely facilitates the implementation.',
+ 'Algunos comentarios:\n- La función recursiva es menos eficiente, ya que la pila se desbordará con listas muy largas.\n- La función recursiva está implementada al estilo del _desarrollo dirigido por tipos_: procedemos, paso a paso, analizando los tipos de los datos de entrada disponibles, y los tipos de salida que tenemos que generar. Esto lleva a una estrategia de resolución de problemas de divide y vencerás y facilita enormemente la implementación.'),
+
+('### The _Divide and Conquer_ design pattern',
+ '### Patrón de diseño de _Divide y Vencerás_'),
+
+('- The divide-and-conquer strategy shows up, first, in the initial decomposition step: since the function that we have to implement is _total_ (it is defined for every value of the input type), and the input type is a sum type defined over different variants (the empty list and the non-empty list, in this case), we can divide the implementation of the function into the implementation of a function for each of the variants.\n- Second, since we are working with a recursive data structure, the case of the non-empty list can be solved taking into account the solution of the problem for the rest of the list. Rather than divide and conquer, we can speak here of _decrease and conquer_, since there is just one subproblem. The problem set includes examples of recursive functions over trees, where this recursive style gives rise to a more classical divide-and-conquer approach (since the number of subtrees of a non-empty tree is two).\n- All these considerations lead us to isolate the divide-and-conquer (or decrease-and-conquer) design pattern for solving problems over lists:',
+ '- La estrategia de divide y vencerás se manifiesta, en primer lugar, en el primer paso de descomposición: dado que la función que tenemos que implementar es _total_ (está definida para todo valor del tipo de entrada) y que el tipo de entrada es un tipo suma definido sobre distintas variantes (la lista vacía y la lista no vacía, en este caso), podemos dividir la implementación de la función en la implementación de una función para cada una de las variantes.\n- En segundo lugar, dado que estamos trabajando con una estructura de datos recursiva, el caso de la lista no vacía se puede resolver teniendo en cuenta la solución del problema para el resto de la lista. Más que un divide y vencerás, podemos hablar aquí de un _reduce y vencerás_, dado que solo tenemos un subproblema. En la hoja de problemas se encontrarán ejemplos de funciones recursivas sobre árboles, y este estilo recursivo da lugar a una aproximación de divide y vencerás más clásica (dado que el número de subárboles de un árbol no vacío es dos).\n- Todas estas consideraciones nos llevan a aislar el patrón de diseño de divide y vencerás (o reduce y vencerás) para la resolución de problemas sobre listas:'),
+
+('#### The _iterative_ design pattern',
+ '#### Patrón de diseño _iterativo_'),
+
+('The implementation based on tail-recursive functions follows an _iterative_ design pattern, quite different from the divide-and-conquer design pattern illustrated by the recursive implementation of the previous section. And, in essence, this design pattern of tail-recursive functions is the same as the one implemented by the imperative solution, which uses mutable variables and the loops of structured programming.',
+ 'La implementación basada en funciones recursivas por cola, o finales, se basa en un patrón de diseño _iterativo_, muy distinto del patrón de diseño de divide y vencerás ilustrado en la implementación recursiva de la sección anterior. Y, en esencia, este patrón de diseño de las funciones recursivas finales es el mismo que el implementado por medio de la solución imperativa que utiliza variables mutables y bucles de la programación estructurada.'),
+
+('In both the imperative and the tail-recursive implementations, the pattern for solving the problem, represented by the input list, is the same:\n* We initialise the solution to a given value\n* We iterate over the elements of the list and, for each of them, we update the partial solution built so far taking that element into account\n* When the iteration is over, the partial solution is the final solution, and we return it.\n\nThe difference between the imperative and the tail-recursive implementations lies in the way these actions are carried out: in the imperative solution, iteration is performed by the _while_ loop, whereas in the tail-recursive solution, iteration is performed by recursive calls to the auxiliary function _step_. But, and this is what matters, the way of solving the problem is the same: it is the same design pattern in both cases, and this is what will be abstracted in the next topic.',
+ 'Tanto en la implementación imperativa como en la basada en recursión final, el patrón de resolución del problema, representado por la lista de entrada, es el mismo:\n* Inicializamos la solución a un valor concreto\n* Iteramos sobre los elementos de la lista, y para cada uno de ellos: actualizamos la solución parcial construida hasta el momento teniendo en cuenta ese elemento\n* Cuando terminemos la iteración, la solución parcial será la solución definitiva y la devolvemos.\n\nLa diferencia entre las implementaciones imperativas y con recursión final está en la distinta forma de realizar estas acciones: en el caso de la solución imperativa, la iteración se lleva a cabo mediante el bucle _while_, mientras que en el caso de la solución con recursión final, la iteración se lleva a cabo mediante llamadas recursivas a la función auxiliar _step_. Pero, y esto es lo importante, la forma de resolver el problema es la misma, es el mismo patrón de diseño en un caso y en otro, y esto es lo que se abstraerá en el siguiente tema.'),
+
+('// Atomic problem, not decomposable',
+ '// Problema atómico, no descomponible'),
+
+('// Reducible problem, solvable through the solution for the rest (`tailSol`)',
+ '// Problema reducible, resoluble a través de la solución al resto (`tailSol`)'),
+
+('// and the head of the list',
+ '// y la cabeza de la lista'),
+
 ]
