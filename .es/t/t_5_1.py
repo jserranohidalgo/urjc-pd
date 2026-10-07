@@ -168,14 +168,6 @@ es decir, una lista de enteros es la secuencia vacía (representada por el tipo 
 ("// Tail-recursive, efficiently", "// Recursiva final, eficientemente"),
 ("// invoke", "// invocar"),
 
-# El template conserva el orden original de las viñetas
-("""Some comments:
-- The recursive function is implemented in a _type-driven development_ style: we proceed, step-by-step, analysing the types of input data that are available, and the types of output that we have to generate. This leads to a divide-and-conquer problem solving strategy and hugely facilitates the implementation.
-- The recursive function is less efficient, since the stack will blow up with very long lists.""",
- """Algunos comentarios:
-- La función recursiva está implementada al estilo del _desarrollo dirigido por tipos_: procedemos, paso a paso, analizando los tipos de los datos de entrada disponibles, y los tipos de salida que tenemos que generar. Esto lleva a una estrategia de resolución de problemas de divide y vencerás y facilita enormemente la implementación.
-- La función recursiva es menos eficiente, ya que la pila se desbordará con listas muy largas."""),
-
 # Patrones de diseño: divide y vencerás, iterativo (2026-10-07)
 ('Some comments:\n- The recursive function is less efficient, since the stack will blow up with very long lists.\n- The recursive function is implemented in a _type-driven development_ style: we proceed, step-by-step, analysing the types of input data that are available, and the types of output that we have to generate. This leads to a divide-and-conquer problem solving strategy and hugely facilitates the implementation.',
  'Algunos comentarios:\n- La función recursiva es menos eficiente, ya que la pila se desbordará con listas muy largas.\n- La función recursiva está implementada al estilo del _desarrollo dirigido por tipos_: procedemos, paso a paso, analizando los tipos de los datos de entrada disponibles, y los tipos de salida que tenemos que generar. Esto lleva a una estrategia de resolución de problemas de divide y vencerás y facilita enormemente la implementación.'),
